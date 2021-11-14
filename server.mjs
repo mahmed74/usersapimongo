@@ -6,6 +6,13 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(cors());
+app.use(express.json());
+app.use(morgan("short"));
+
 mongoose.connect(
   `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.s2dv1.mongodb.net/chatbotusers?retryWrites=true&w=majority`
 );
@@ -14,13 +21,6 @@ const User = mongoose.model("User", {
   email: String,
   address: String,
 });
-
-const app = express();
-const port = process.env.PORT || 3000;
-
-app.use(cors());
-app.use(express.json());
-app.use(morgan("short"));
 
 app.use((req, res, next) => {
   console.log("a request came", req.body);
