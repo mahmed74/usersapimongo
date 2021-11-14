@@ -2,9 +2,12 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 mongoose.connect(
-  "mongodb+srv://ahmed:ahmed0704@cluster0.s2dv1.mongodb.net/chatbotusers?retryWrites=true&w=majority"
+  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.s2dv1.mongodb.net/chatbotusers?retryWrites=true&w=majority`
 );
 const User = mongoose.model("User", {
   name: String,
