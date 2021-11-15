@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(morgan("short"));
 
 mongoose.connect(
-  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.s2dv1.mongodb.net/chatbotusers?retryWrites=true&w=majority`
+  `mongodb+srv://ahmed:ahmed0704@cluster0.s2dv1.mongodb.net/chatbotusers?retryWrites=true&w=majority`
 );
 const User = mongoose.model("User", {
   name: String,
