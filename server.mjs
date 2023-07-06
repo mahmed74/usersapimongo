@@ -12,12 +12,10 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(morgan("short"));
+mongoose.set("strictQuery", false);
 
-// mongoose.connect(
-//   `mongodb+srv://ahmed:ahmed0704@cluster0.s2dv1.mongodb.net/chatbotusers?retryWrites=true&w=majority`
-// );
 mongoose.connect(
- `mongodb+srv://mahmed:<password>@cluster0.bzmqady.mongodb.net/?retryWrites=true&w=majority`
+  `mongodb+srv://mahmed74:ahmed0704@cluster0.f2dooat.mongodb.net/?retryWrites=true&w=majority`
 );
 
 const User = mongoose.model("User", {
